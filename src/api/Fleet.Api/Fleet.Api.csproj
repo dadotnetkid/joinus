@@ -8,12 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="app_data\1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="app_data\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0" />
     <PackageReference Include="ServiceStack.Text" Version="5.13.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Fleet.Files.Repository\Fleet.Files.Repository.csproj" />
+    <ProjectReference Include="..\..\..\Fleet.Files\Fleet.Files.csproj" />
     <ProjectReference Include="..\..\vehicles\Fleet.Vehicles\Fleet.Vehicles.csproj" />
   </ItemGroup>
 

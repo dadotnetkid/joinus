@@ -1,13 +1,13 @@
-﻿using Fleet.Vehicles;
+﻿using System.Reflection;
 using Fleet.Vehicles.Models;
 using Fleet.Vehicles.Repositories;
 using Fleet.Vehicles.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System.Reflection;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Fleet.Vehicles.Extensions
 {
     public static class VehicleServiceCollectionExtensions
     {

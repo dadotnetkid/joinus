@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FilesModule } from './pages/files/files.module';
 import { UiModule } from './ui.module';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UiModule } from './ui.module';
     HttpClientModule,
     ApiModule.forRoot({rootUrl: environment.apiUrl}),
     AppRoutingModule,
-    UiModule
+    UiModule,
+    FilesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

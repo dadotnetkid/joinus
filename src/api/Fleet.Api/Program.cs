@@ -1,5 +1,8 @@
 ﻿using System.Reflection;
 using System.Text.Json.Serialization;
+using Fleet.Files.Repository;
+using Fleet.Files.Services;
+using Fleet.Vehicles.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -23,7 +26,8 @@ services.AddControllers().AddJsonOptions(options =>
 });
 
 services.AddVehicleService(configuration.GetSection("VehicleService"), Assembly.GetExecutingAssembly());
-
+services.AddFileServices();
+services.AddFilesRepository(configuration.GetConnectionString("FilesDbContext"), Assembly.GetExecutingAssembly());
 // Add Swagger UI
 services.AddApiDocumentation();
 
@@ -33,6 +37,11 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
+}
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseStaticFiles();
